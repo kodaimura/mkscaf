@@ -3,7 +3,6 @@
 APP_NAME=${1:-goatapp}
 shift
 
-CURRENT_DIR=$(pwd)
 DB="sqlite3"
 
 while (( $# > 0 ))
@@ -29,7 +28,8 @@ if [ $DB != "sqlite3" ] && [ $DB != "pg" ] && [ $DB != "mysql" ]; then
 fi
 
 git clone https://github.com/kodaimura/goat $APP_NAME
-bash _setup_setup.sh $APP_NAME -db $DB
+cd $APP_NAME
+bash _setup/setup.sh $APP_NAME -db $DB
 
 go mod init $APP_NAME
 go mod tidy
