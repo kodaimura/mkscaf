@@ -7,7 +7,7 @@ CLONE_DIR=$(cd $(dirname $0); cd ../clone; pwd)
 # GOAT
 rm -rf $CLONE_DIR/goat
 git clone https://github.com/kodaimura/goat.git $CLONE_DIR/goat
-rm -rf $ROOT_DIR
-sudo ln -s $CLONE_DIR/goat/bin $ROOT_DIR
+rm -rf $ROOT_DIR/bin
+ln -s $CLONE_DIR/goat/bin $ROOT_DIR
 
-chmod -R +x $ROOT_DIR/bin
+chmod -R +x $ROOT_DIR
