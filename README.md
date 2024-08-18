@@ -1,18 +1,18 @@
-# create-app
+# goat-cli
 アプリケーション雛形作成コマンド
 
 ## Install
 ```
-$ git clone https://github.com/kodaimura/create-app
+$ git clone https://github.com/kodaimura/goat-cli
 ```
-* create-app/bin にPATHを通す
+* goat-cli/bin にPATHを通す
 * 実行権限付与
 ```
-$ chmod -R +x path/to/create-app/bin
+$ chmod -R +x path/to/goat-cli/bin
 ```
 ## Usage
 ### Golang (Gin) テンプレート作成
 ```
-$ goat <appname> [-db {sqlite3| postgres | mysql}]
+$ goat-create-app <appname> [-db {sqlite3| postgres | mysql}]
 ```
 参照 https://github.com/kodaimura/goat
