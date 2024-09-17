@@ -1,0 +1,38 @@
+#!/bin/bash
+
+SH_DIR=$(cd $(dirname $0); pwd)
+ROOT_DIR=$(cd $(dirname $0); cd ../; pwd)
+CLONE_DIR=$(cd $(dirname $0); cd ../clone; pwd)
+
+rm -rf $CLONE_DIR/goat
+git clone https://github.com/kodaimura/goat.git $CLONE_DIR/goat
+chmod -R +x $CLONE_DIR/goat/bin
+
+while true; do
+    echo ""
+    echo -e "\033[32mPlease enter your GOAT Project Name.\033[0m"
+    echo -n ">> "
+    read appname
+    
+    if [ -n "$appname" ]; then
+        break
+    fi
+done
+
+while true; do
+    echo ""
+    echo -e "\033[32mPlease enter the type of database ( sqlite3 | postgres | mysql ).\033[0m"
+    echo -n ">> "
+    read database
+    
+    case $database in sqlite3|postgres|mysql)
+        break
+      ;;
+    *)
+    esac
+done
+
+$CLONE_DIR/goat/bin/goat-create-app $appname -db $database
+
+echo ""
+echo -e "\033[34mSuccess!!!!!!\033[0m"
