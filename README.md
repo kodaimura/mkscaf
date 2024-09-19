@@ -5,7 +5,8 @@
 ```
 $ git clone https://github.com/kodaimura/create-app
 ```
+* create-app/bin にPATHを通す
 ```
-$ make setup
+$ chmod -R +x path/to/create-app/bin
 ```
-create-app/bin にPATHを通す
+
