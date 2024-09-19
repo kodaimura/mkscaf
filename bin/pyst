@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SH_DIR=$(cd $(dirname $0); pwd)
+ROOT_DIR=$(cd $(dirname $0); cd ../; pwd)
+TEMPLATE_DIR=$(cd $(dirname $0); cd ../template; pwd)
+
+while true; do
+    echo ""
+    echo -e "\033[32mPlease enter your Python Script Name.\033[0m"
+    echo -n ">> "
+    read appname
+    
+    if [ -n "$appname" ]; then
+        break
+    fi
+done
+
+if ! cp -r "$TEMPLATE_DIR/pyst" "$appname"; then
+    echo "Failed to copy template. Exiting."
+    exit 1
+fi
+
+echo ""
+echo -e "\033[34mSuccess!!!!!!\033[0m"
