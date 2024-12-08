@@ -1,0 +1,52 @@
+#!/bin/bash
+
+SH_DIR=$(cd "$(dirname "$0")"; pwd)
+ROOT_DIR=$(cd "$(dirname "$0")/.."; pwd)
+TEMPLATE_DIR=$(cd "$(dirname "$0")/../template"; pwd)
+
+# プロジェクト名の取得
+while true; do
+    echo ""
+    echo -e "\033[32m🔧 Please enter your Julia Project Name:\033[0m"
+    echo -n ">> "
+    read appname
+    
+    if [ -n "$appname" ]; then
+        break
+    fi
+    echo -e "\033[31m⚠️ Error: Project name cannot be empty. Please try again.\033[0m"
+done
+
+# テンプレートのコピー
+if ! cp -r "$TEMPLATE_DIR/jlat" "$appname"; then
+    echo -e "\033[31m❌ Error: Failed to copy template. Exiting.\033[0m"
+    exit 1
+fi
+
+sed -i "" s/MvcApp/$appname/g $appname/Dockerfile.setup
+
+# プロジェクトディレクトリへの移動
+if ! cd "$appname"; then
+    echo -e "\033[31m❌ Error: Failed to change directory to '$appname'. Exiting.\033[0m"
+    exit 1
+fi
+
+if ! docker build -t genie-app -f Dockerfile.setup .; then
+    echo -e "\033[31m❌ Error: Failed to docker compose build. Exiting.\033[0m"
+    exit 1
+fi
+
+if ! docker create --name temp-genie-app genie-app; then
+    echo -e "\033[31m❌ Error: Failed to docker compose up -d. Exiting.\033[0m"
+    exit 1
+fi
+
+docker cp temp-genie-app:/app/$appname ./
+docker rm temp-genie-app
+
+mv $appname/* .
+mv $appname/.* .
+rm -rf $appname
+rm Dockerfile.setup
+
+echo -e "\n\033[34m🎉 Success! Your Genie project '$appname' has been created!\033[0m"

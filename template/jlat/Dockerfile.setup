@@ -1,0 +1,7 @@
+FROM julia:1.11
+
+WORKDIR /app
+
+RUN julia -e 'using Pkg; Pkg.add("Genie")'
+
+RUN julia -e 'using Genie; Genie.Generator.newapp_mvc("MvcApp", autostart = false, dbadapter = :PostgreSQL)'
