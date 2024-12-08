@@ -1,19 +1,20 @@
-# create-app
-アプリケーション雛形作成コマンド
+# mkscaf
+* make scaffold
+* コード雛形作成コマンド
 
 ## Install
 ### clone
 ```
-$ git clone https://github.com/kodaimura/create-app
+$ git clone https://github.com/kodaimura/mkscaf
 ```
 
-### create-app/bin にPATHを通す
+### mkscaf/bin にPATHを通す
 ```
-export PATH=$PATH:path/to/create-app/bin
+export PATH=$PATH:path/to/mkscaf/bin
 ```
 
 ### 実行権限付与
 ```
-$ chmod -R +x path/to/create-app/bin
+$ chmod -R +x path/to/mkscaf/bin
 ```
 
