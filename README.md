@@ -15,6 +15,7 @@ export PATH=$PATH:path/to/mkscaf/bin
 
 ### 実行権限付与
 ```
-$ chmod -R +x path/to/mkscaf/bin
+$ cd path/to/mkscaf
+$ make grant
 ```
 
