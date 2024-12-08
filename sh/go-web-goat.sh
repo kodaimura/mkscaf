@@ -28,16 +28,28 @@ done
 # データベースタイプの取得
 while true; do
     echo ""
-    echo -e "\033[32m🔌 Please enter the type of database (sqlite3 | postgres | mysql):\033[0m"
-    echo -n ">> "
-    read database
+    echo -e "\033[32m🔌 Please choose the type of database:\033[0m"
+    echo "1. SQLite3"
+    echo "2. PostgreSQL"
+    echo "3. MySQL"
+    echo -n "Enter the number (1-3): "
+    read database_choice
     
-    case $database in
-        sqlite3|postgres|mysql)
+    case $database_choice in
+        1)
+            database="sqlite3"
+            break
+            ;;
+        2)
+            database="postgres"
+            break
+            ;;
+        3)
+            database="mysql"
             break
             ;;
         *)
-            echo -e "\033[31m⚠️ Error: Invalid database type. Please choose sqlite3, postgres, or mysql.\033[0m"
+            echo -e "\033[31m⚠️ Error: Invalid choice. Please choose a number between 1-3.\033[0m"
             ;;
     esac
 done
