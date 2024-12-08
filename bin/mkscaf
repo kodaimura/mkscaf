@@ -2,99 +2,104 @@
 
 SH_DIR=$(cd "$(dirname "$0")/../sh"; pwd)
 
-echo "Choose a language to scaffold:"
-echo "1. Go"
-echo "2. Julia"
-echo "3. PHP"
-echo "4. Python"
-echo "5. Racket"
+# タイトルを絵文字と色で強調
+echo -e "\033[1;34m🚀 Create Project Scaffold! 🚀\033[0m"
+echo -e "\033[1;32mChoose a language to scaffold:\033[0m"
+echo -e "1. Go"
+echo -e "2. Julia"
+echo -e "3. PHP"
+echo -e "4. Python"
+echo -e "5. Racket"
+echo -e "\033[1;32mPlease select a number between 1-5:\033[0m"
 
 read -p "Enter your choice (1-5): " lang
+echo ""
 
 case $lang in
     1)
-        echo "What type of project do you want to scaffold?"
-        echo "1. Script"
-        echo "2. Web Application (goat)"
-        
+        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
+        echo -e "1. Script"
+        echo -e "2. Web Application (Goat)"
+
         while true; do
             read -p "Enter your choice (1-2): " scaf
             case $scaf in
                 1)
+                    echo -e "\033[1;36mScaffolding a Go script...\033[0m"
                     $SH_DIR/go-script.sh
                     break
                     ;;
                 2)
+                    echo -e "\033[1;36mScaffolding a Go web application (Goat)...\033[0m"
                     $SH_DIR/go-web-goat.sh
                     break
                     ;;
                 *)
-                    echo "Invalid choice. Please choose a number between 1-2."
-                    exit 1
+                    echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-2.\033[0m"
                     ;;
             esac
         done
         ;;
     2)  
-        echo "Julia: Not yet supported."
+        echo -e "\033[1;31m❌ Julia: Not yet supported.\033[0m"
         exit 1
         ;;
     3)
-        echo "What type of project do you want to scaffold?"
-        echo "1. Web Application (laravel)"
+        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
+        echo -e "1. Web Application (Laravel)"
 
         while true; do
             read -p "Enter your choice (1): " scaf
             case $scaf in
                 1)
+                    echo -e "\033[1;36mScaffolding a PHP web application (Laravel)...\033[0m"
                     $SH_DIR/php-web-laravel.sh
                     break
                     ;;
                 *)
-                    echo "Invalid choice. Please choose a number between 1-1."
-                    exit 1
+                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
                     ;;
             esac
         done
         ;;
     4)
-        echo "What type of project do you want to scaffold?"
-        echo "1. Script"
+        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
+        echo -e "1. Script"
 
         while true; do
             read -p "Enter your choice (1): " scaf
             case $scaf in
                 1)
+                    echo -e "\033[1;36mScaffolding a Python script...\033[0m"
                     $SH_DIR/python-script.sh
                     break
                     ;;
                 *)
-                    echo "Invalid choice. Please choose a number between 1-1."
-                    exit 1
+                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
                     ;;
             esac
         done
         ;;
     5)
-        echo "What type of project do you want to scaffold?"
-        echo "1. Script"
+        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
+        echo -e "1. Script"
 
         while true; do
             read -p "Enter your choice (1): " scaf
             case $scaf in
                 1)
+                    echo -e "\033[1;36mScaffolding a Racket script...\033[0m"
                     $SH_DIR/racket-script.sh
                     break
                     ;;
                 *)
-                    echo "Invalid choice. Please choose a number between 1-1."
-                    exit 1
+                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
                     ;;
             esac
         done
         ;;
     *)
-        echo "Invalid choice. Please run the script again and choose a number between 1-5."
+        echo -e "\033[1;31m❌ Invalid choice. Please run the script again and choose a number between 1-5.\033[0m"
         exit 1
     ;;
 esac
