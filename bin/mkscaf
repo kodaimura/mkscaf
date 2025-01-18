@@ -41,8 +41,22 @@ case $lang in
         done
         ;;
     2)  
-        echo -e "\033[1;31m❌ Julia: Not yet supported.\033[0m"
-        exit 1
+        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
+        echo -e "1. Web Application (Jlat)"
+
+        while true; do
+            read -p "Enter your choice (1-2): " scaf
+            case $scaf in
+                1)
+                    echo -e "\033[1;36mScaffolding a Go web application (Jlat)...\033[0m"
+                    $SH_DIR/julia-web-jlat.sh
+                    break
+                    ;;
+                *)
+                    echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-2.\033[0m"
+                    ;;
+            esac
+        done
         ;;
     3)
         echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
