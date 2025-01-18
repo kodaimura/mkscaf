@@ -19,3 +19,7 @@ $ cd path/to/mkscaf
 $ make grant
 ```
 
+## Usage
+```
+$ mkscaf
+```
