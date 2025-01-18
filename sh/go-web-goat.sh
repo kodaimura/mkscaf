@@ -55,7 +55,7 @@ while true; do
 done
 
 # アプリケーションの作成
-if ! "$CLONE_DIR/goat/bin/goat-create-app" "$appname" -db "$database"; then
+if ! "$CLONE_DIR/goat/bin/goat" "$appname" -db "$database"; then
     echo -e "\033[31m❌ Error: Failed to create the application.\033[0m"
     exit 1
 fi
