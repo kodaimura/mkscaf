@@ -41,7 +41,7 @@ while true; do
             break
             ;;
         2)
-            database="postgres"
+            database="postgresql"
             break
             ;;
         3)
