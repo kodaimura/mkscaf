@@ -43,13 +43,19 @@ case $lang in
     2)  
         echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
         echo -e "1. Web Application (Jlat)"
+        echo -e "2. Pkg"
 
         while true; do
             read -p "Enter your choice (1-2): " scaf
             case $scaf in
                 1)
-                    echo -e "\033[1;36mScaffolding a Go web application (Jlat)...\033[0m"
+                    echo -e "\033[1;36mScaffolding a Julia web application (Jlat)...\033[0m"
                     $SH_DIR/julia-web-jlat.sh
+                    break
+                    ;;
+                2)
+                    echo -e "\033[1;36mScaffolding a Julia Pkg...\033[0m"
+                    $SH_DIR/julia-pkg.sh
                     break
                     ;;
                 *)
