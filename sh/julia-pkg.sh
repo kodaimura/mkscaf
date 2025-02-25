@@ -1,4 +1,5 @@
-CURRENT_DIR=$(pwd)
+#!/bin/bash
+
 GIT_USER=$(git config --global user.name)
 GIT_EMAIL=$(git config --global user.email)
 
@@ -16,7 +17,7 @@ while true; do
 done
 
 docker run --rm \
-  -v "$CURRENT_DIR:/pkg" \
+  -v $(pwd):/pkg \
   -e GIT_USER="$GIT_USER" \
   -e GIT_EMAIL="$GIT_EMAIL" \
   julia:latest sh -c "
