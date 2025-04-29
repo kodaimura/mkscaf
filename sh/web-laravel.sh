@@ -44,6 +44,12 @@ if ! cd "$appname"; then
   exit 1
 fi
 
+# .vscodeをコピー
+if ! cp -r $ROOT_DIR/.vscode .; then
+  echo -e "\033[31m❌ Error: Failed to copy .vscode. Exiting.\033[0m"
+  exit 1
+fi
+
 # Laravelのセットアップ
 echo -e "\n🚀 Running Docker compose to set up Laravel..."
 if docker compose run --rm app composer create-project --prefer-dist laravel/laravel .; then

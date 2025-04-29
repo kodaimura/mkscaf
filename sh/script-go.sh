@@ -32,5 +32,11 @@ if ! cp -r "$TEMPLATE_DIR/script-go" "$appname"; then
   exit 1
 fi
 
+# .vscodeをコピー
+if ! cp -r "$ROOT_DIR/.vscode" "$appname"; then
+  echo -e "\033[31m❌ Error: Failed to copy .vscode. Exiting.\033[0m"
+  exit 1
+fi
+
 echo ""
 echo -e "\033[34m🎉 Success! Your Golang project '$appname' has been created!\033[0m"
