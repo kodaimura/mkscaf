@@ -18,7 +18,7 @@ while true; do
 done
 
 # テンプレートのコピー
-if ! cp -r "$TEMPLATE_DIR/php-web-laravel" "$appname"; then
+if ! cp -r "$TEMPLATE_DIR/web-laravel" "$appname"; then
     echo -e "\033[31m❌ Error: Failed to copy template. Exiting.\033[0m"
     exit 1
 fi

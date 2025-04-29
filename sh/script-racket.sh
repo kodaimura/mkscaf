@@ -18,7 +18,7 @@ while true; do
 done
 
 # テンプレートのコピー
-if ! cp -r "$TEMPLATE_DIR/racket-script" "$appname"; then
+if ! cp -r "$TEMPLATE_DIR/script-racket" "$appname"; then
     echo -e "\033[31m❌ Error: Failed to copy template. Exiting.\033[0m"
     exit 1
 fi

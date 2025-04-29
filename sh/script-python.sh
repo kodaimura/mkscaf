@@ -4,10 +4,10 @@ SH_DIR=$(cd "$(dirname "$0")"; pwd)
 ROOT_DIR=$(cd "$(dirname "$0")/.."; pwd)
 TEMPLATE_DIR=$(cd "$(dirname "$0")/../template"; pwd)
 
-# スクリプト名の取得
+# Pythonスクリプト名の取得
 while true; do
     echo ""
-    echo -e "\033[32m🔧 Please enter your Golang Script Name:\033[0m"
+    echo -e "\033[32m🐍 Please enter your Python Script Name:\033[0m"
     echo -n ">> "
     read appname
     
@@ -18,10 +18,10 @@ while true; do
 done
 
 # テンプレートのコピー
-if ! cp -r "$TEMPLATE_DIR/go-script" "$appname"; then
+if ! cp -r "$TEMPLATE_DIR/script-python" "$appname"; then
     echo -e "\033[31m❌ Error: Failed to copy template. Exiting.\033[0m"
     exit 1
 fi
 
 echo ""
-echo -e "\033[34m🎉 Success! Your Golang project '$appname' has been created!\033[0m"
+echo -e "\033[34m🎉 Success! Your Python project '$appname' has been created!\033[0m"

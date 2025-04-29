@@ -2,149 +2,91 @@
 
 SH_DIR=$(cd "$(dirname "$0")/../sh"; pwd)
 
-# タイトルを絵文字と色で強調
 echo -e "\033[1;34m🚀 Create Project Scaffold! 🚀\033[0m"
-echo -e "\033[1;32mChoose a language to scaffold:\033[0m"
-echo -e "1. Go"
-echo -e "2. Julia"
-echo -e "3. PHP"
-echo -e "4. Python"
-echo -e "5. Racket"
-echo -e "6. Typescript"
-echo -e "\033[1;32mPlease select a number between 1-5:\033[0m"
+echo -e "\033[1;32mChoose a project type:\033[0m"
+echo -e "1. Web Application"
+echo -e "2. Script"
+echo -e "\033[1;32mPlease select a number between 1-2:\033[0m"
 
-read -p "Enter your choice (1-5): " lang
+read -p "Enter your choice (1-2): " project_type
 echo ""
 
-case $lang in
+case $project_type in
     1)
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Script"
-        echo -e "2. Web Application (Goat)"
+        echo -e "\033[1;33mWhat framework do you want to use for the Web Application?\033[0m"
+        echo -e "1. Gin (Go)"
+        echo -e "2. Gin (Go) + Next.js (TypeScript)"
+        echo -e "3. Genie (Julia)"
+        echo -e "4. Genie (Julia) + Next.js (TypeScript)"
+        echo -e "5. Laravel (PHP)"
+        echo -e "\033[1;32mPlease select a number between 1-5:\033[0m"
 
-        while true; do
-            read -p "Enter your choice (1-2): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a Go script...\033[0m"
-                    $SH_DIR/go-script.sh
-                    break
-                    ;;
-                2)
-                    echo -e "\033[1;36mScaffolding a Go web application (Goat)...\033[0m"
-                    $SH_DIR/go-web-goat.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-2.\033[0m"
-                    ;;
-            esac
-        done
+        read -p "Enter your choice (1-5): " lang
+        echo ""
+
+        case $lang in
+            1)
+                echo -e "\033[1;36mScaffolding a Gin web application...\033[0m"
+                $SH_DIR/web-gin.sh
+                ;;
+            2)
+                echo -e "\033[1;36mScaffolding a Gin + Nextjs web application...\033[0m"
+                $SH_DIR/web-gin-next.sh
+                ;;
+            3)
+                echo -e "\033[1;36mScaffolding a Genie web application...\033[0m"
+                $SH_DIR/web-genie.sh
+                ;;
+            4)
+                echo -e "\033[1;36mScaffolding a Genie + Nextjs web application...\033[0m"
+                $SH_DIR/web-genie-next.sh
+                ;;
+            5)
+                echo -e "\033[1;36mScaffolding a Laravel web application...\033[0m"
+                $SH_DIR/web-laravel.sh
+                ;;
+            *)
+                echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-5.\033[0m"
+                exit 1
+                ;;
+        esac
         ;;
-    2)  
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Web Application (Jlat)"
-        echo -e "2. Pkg"
+    2)
+        echo -e "\033[1;33mWhat language do you want to use for the Script?\033[0m"
+        echo -e "1. Go"
+        echo -e "2. Julia"
+        echo -e "3. Python"
+        echo -e "4. Racket"
+        echo -e "\033[1;32mPlease select a number between 1-4:\033[0m"
 
-        while true; do
-            read -p "Enter your choice (1-2): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a Julia web application (Jlat)...\033[0m"
-                    $SH_DIR/julia-web-jlat.sh
-                    break
-                    ;;
-                2)
-                    echo -e "\033[1;36mScaffolding a Julia Pkg...\033[0m"
-                    $SH_DIR/julia-pkg.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-2.\033[0m"
-                    ;;
-            esac
-        done
-        ;;
-    3)
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Web Application (Laravel)"
+        read -p "Enter your choice (1-4): " lang
+        echo ""
 
-        while true; do
-            read -p "Enter your choice (1): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a PHP web application (Laravel)...\033[0m"
-                    $SH_DIR/php-web-laravel.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
-                    ;;
-            esac
-        done
-        ;;
-    4)
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Script"
-
-        while true; do
-            read -p "Enter your choice (1): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a Python script...\033[0m"
-                    $SH_DIR/python-script.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
-                    ;;
-            esac
-        done
-        ;;
-    5)
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Script"
-
-        while true; do
-            read -p "Enter your choice (1): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a Racket script...\033[0m"
-                    $SH_DIR/racket-script.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose 1.\033[0m"
-                    ;;
-            esac
-        done
-        ;;
-    6)
-        echo -e "\033[1;33mWhat type of project do you want to scaffold?\033[0m"
-        echo -e "1. Next"
-        echo -e "2. Nest"
-
-        while true; do
-            read -p "Enter your choice (1-2): " scaf
-            case $scaf in
-                1)
-                    echo -e "\033[1;36mScaffolding a Typescript project (Next)...\033[0m"
-                    $SH_DIR/typescript-web-next.sh
-                    break
-                    ;;
-                2)
-                    echo -e "\033[1;36mScaffolding a Typescript project (Nest)...\033[0m"
-                    $SH_DIR/typescript-web-nest.sh
-                    break
-                    ;;
-                *)
-                    echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-2.\033[0m"
-                    ;;
-            esac
-        done
+        case $lang in
+            1)
+                echo -e "\033[1;36mScaffolding a Go script...\033[0m"
+                $SH_DIR/script-go.sh
+                ;;
+            2)
+                echo -e "\033[1;36mScaffolding a Julia script...\033[0m"
+                $SH_DIR/script-julia.sh
+                ;;
+            3)
+                echo -e "\033[1;36mScaffolding a Python script...\033[0m"
+                $SH_DIR/script-python.sh
+                ;;
+            4)
+                echo -e "\033[1;36mScaffolding a Racket script...\033[0m"
+                $SH_DIR/script-racket.sh
+                ;;
+            *)
+                echo -e "\033[1;31m❌ Invalid choice. Please choose a number between 1-4.\033[0m"
+                exit 1
+                ;;
+        esac
         ;;
     *)
-        echo -e "\033[1;31m❌ Invalid choice. Please run the script again and choose a number between 1-6.\033[0m"
+        echo -e "\033[1;31m❌ Invalid choice. Please run the script again and choose a number between 1-2.\033[0m"
         exit 1
-    ;;
+        ;;
 esac
